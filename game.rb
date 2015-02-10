@@ -36,6 +36,15 @@ class Game
         else
           msg = 'Nothing to pick up'
         end
+      when 'd'
+        puts "Please enter the number of the item to drop:"
+        index = STDIN.gets.chomp.to_i
+
+        if item = @player.drop(index)
+          @arena.add_item(item, @player.x, @player.y)
+        else
+          msg = "You don't have that item!"
+        end
       end
     end
   end

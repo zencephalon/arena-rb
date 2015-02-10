@@ -15,6 +15,11 @@ class Arena
     @things.delete(item)
   end
 
+  def add_item(item, x, y)
+    item.x, item.y = x, y
+    @things << item
+  end
+
   def to_s
     (0..@height).map do |y|
       (0..@width).map do |x|
