@@ -10,7 +10,11 @@ class Player < Thing
     @inventory << item
   end
 
+  def drop(index)
+    @inventory.delete_at(index)
+  end
+
   def to_s
-    @inventory.map {|i| i.to_s}.join("\n")
+    @inventory.each_with_index.map {|item, i| "#{i}: #{item.to_s}" }.join("\n")
   end
 end
